@@ -28,15 +28,15 @@ func main() {
 	}
 
 	if count == 1 {
-		commandArgs = append(commandArgs, "--", elements[0])
+		commandArgs = append(commandArgs, "--", elements[1])
 	} else {
-		globs := strings.Fields(elements[0])
+		globs := strings.Fields(elements[1])
 
 		for _, glob := range globs {
 			commandArgs = append(commandArgs, "--iglob", glob)
 		}
 
-		commandArgs = append(commandArgs, "--", strings.Trim(elements[1], " "))
+		commandArgs = append(commandArgs, "--", strings.Trim(elements[0], " "))
 	}
 
 	output, err := exec.Command("rg", commandArgs...).Output()
