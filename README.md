@@ -1,41 +1,51 @@
 # vimrg
+
 Little tool to support glob for fzf-lua in nvim
 
-# How to use:
-## Build the tool
-- Clone the project
-- `go build`
-- Copy `vimrg` to your PATH
-## Configure nvim
-- Install [fzf-lua](https://github.com/ibhagwan/fzf-lua)
-- Use `:lua require('fzf-lua').live_grep({ cmd = "vimrg" })` to open the fzf live_grep supporting globs
+## Requirements
 
-# Syntax:
-## Syntax for `vimrg` as a CLI tool:
-Find `myservice` in all files
+-   go
+-   rg
+
+## Install
+
+```sh
+go get github.com/dinhhuy258/vimrg
 ```
+
+## Syntax:
+
+Find `myservice` in all files
+
+```sh
 vimrg myservice
 ```
 
 Find `myservice` in test files
-```
-vimrg *test* > myservice
+
+```sh
+vimrg myservice > *test*
 ```
 
 Find `myservice` in non-test files
-```
-vimrg !*test* > myservice
+
+```sh
+vimrg myservice > !*test*
 ```
 
 Find `myservice` in non-test controller files
-```
+
+```sh
 vimrg !*test* *controller* > myservice
 ```
 
 Find `myservice` not in `/test/` directories
-```
-vimrg !*/test/* > myservice
+
+```sh
+vimrg myservice > !*/test/*
 ```
 
-## Syntax in nvim for fzf-lua
-Remove `vimrg ` from the CLI syntax
+## Configure with fzf-nvim
+
+-   Install [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+-   Use `:lua require('fzf-lua').live_grep({ cmd = "vimrg" })` to open the fzf live_grep supporting globs
