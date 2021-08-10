@@ -36,7 +36,7 @@ vimrg myservice > !*test*
 Find `myservice` in non-test controller files
 
 ```sh
-vimrg !*test* *controller* > myservice
+vimrg myservice > !*test* *controller*
 ```
 
 Find `myservice` not in `/test/` directories
