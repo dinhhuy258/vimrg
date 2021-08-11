@@ -37,7 +37,7 @@ func main() {
 
 	output, err := exec.Command("rg", commandArgs...).Output()
 	if err != nil {
-		return
+    fmt.Printf("")
 	} else {
 		fmt.Printf(string(output))
 	}
