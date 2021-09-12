@@ -8,6 +8,7 @@ import (
 )
 
 var commandArgs = []string{
+	"-F",
 	"--column",
 	"--line-number",
 	"--no-heading",
@@ -36,9 +37,10 @@ func main() {
 	}
 
 	output, err := exec.Command("rg", commandArgs...).Output()
+
 	if err != nil {
-    fmt.Printf("")
+		fmt.Print("")
 	} else {
-		fmt.Printf(string(output))
+		fmt.Print(string(output))
 	}
 }
