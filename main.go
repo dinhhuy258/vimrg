@@ -36,11 +36,7 @@ func main() {
 		commandArgs = append(commandArgs, "--", strings.Trim(elements[0], " "))
 	}
 
-	output, err := exec.Command("rg", commandArgs...).Output()
+	output, _ := exec.Command("rg", commandArgs...).Output()
 
-	if err != nil {
-		fmt.Print("")
-	} else {
-		fmt.Print(string(output))
-	}
+	fmt.Printf(string(output))
 }
