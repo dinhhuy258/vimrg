@@ -22,7 +22,7 @@ func main() {
 	}
 
 	query := os.Args[1]
-	elements := strings.SplitN(query, ">", 2)
+	elements := strings.SplitN(query, " > ", 2)
 
 	if len(elements) == 1 {
 		commandArgs = append(commandArgs, "--", elements[0])
